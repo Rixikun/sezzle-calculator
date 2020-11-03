@@ -8,7 +8,6 @@ const firestore = firebase.firestore();
 
 const Calculator =(props)=> {
     const calculations = firestore.collection("calculations");
-    const [formValue, setFormValue] = useState("");
     const [input, setInput] = useState("");
     const [current, setCurrent] = useState("");
     const [op, setOp] = useState("");
@@ -30,7 +29,6 @@ const Calculator =(props)=> {
             setCurrent(res)
             setOp("")
             setInput("")
-            setFormValue("");
             setAllow(true)
         } else {
             alert("enter valid operation")

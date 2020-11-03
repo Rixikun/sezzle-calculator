@@ -17,15 +17,14 @@ firebase.initializeApp({
 
 const firestore = firebase.firestore();
 
-const DisplayHistory =(props)=> {
+const DisplayHistory =()=> {
 
     const messagesRef = firestore.collection("calculations");
     const query = messagesRef.orderBy("createdAt", 'desc').limit(10);
   
-    const [values, loading, error] = useCollectionData(query, {
+    const [values] = useCollectionData(query, {
       idField: "id",
     });
-    console.log(values)
 
     return (
         <>
