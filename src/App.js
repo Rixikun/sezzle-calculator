@@ -1,4 +1,5 @@
 import DisplayHistory from './components/DisplayHistory'
+import Calculator from './components/Calculator'
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
         Enter Calculations
         </h1>
       <br/>
+      <Calculator />
       <DisplayHistory />
     </div>
   );
