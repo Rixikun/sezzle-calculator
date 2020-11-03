@@ -10,8 +10,10 @@ function App() {
           Enter Calculations
         </h1>
       </header>
-      <Calculator />
-      <DisplayHistory />
+      <main>
+        <DisplayHistory />
+        <Calculator />
+      </main>
     </div>
   );
 }

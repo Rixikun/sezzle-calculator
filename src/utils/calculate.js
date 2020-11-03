@@ -22,7 +22,7 @@ function calculate(operator, a, b){
         case "/":
             return divide(a,b)
         default:
-            alert("enter valid operation")
+            console.log("enter valid operation")
     }
 }
 
