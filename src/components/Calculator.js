@@ -14,7 +14,7 @@ const Calculator =(props)=> {
     const [op, setOp] = useState("");
     const [allow, setAllow] = useState(true);
 
-    const numbers = [0,1,2,3,4,5,6,7,8,9]
+    const numbers = [7,8,9,4,5,6,1,2,3,0,"."]
     const operators = ["+","-","*","/"]
     
     const sendCalculation = async (e) => {
@@ -54,23 +54,25 @@ const Calculator =(props)=> {
         setAllow(true)
     }
 
-    const numPad = (<div>    
-        <div>
-            {numbers.map(num => <button value={num} onClick={e => handleClick(e)}>{num}</button>)}
+    const numPad = (<div className="calculator-buttons">    
+
+        <div className="calculator-numbers">
+            <button value="clear" onClick={clearInput} className="btn-clear">Clear</button>
+            {numbers.map(num => <button value={num} onClick={e => handleClick(e)} key={num}>{num}</button>)}
         </div>
-        <div>
-            {operators.map(op => <button value={op} onClick={e => handleClick(e)} disabled={!allow}>{op}</button>)}
-            <button value="=" onClick={e => handleClick(e)}>=</button>
+        <div className="calculator-operators">
+            {operators.map(op => <button value={op} onClick={e => handleClick(e)} disabled={!allow} key={op}>{op}</button>)}
+            <button value="=" onClick={e => handleClick(e)} className="btn-equal">=</button>
         </div>
     </div>)
 
     return (
-        <>
+        <div className="calculator-container">
+            <div className="calculator-display">
+                <h4>{current}</h4>
+            </div>
             {numPad}
-            <button value="clear" onClick={clearInput}>C</button>
-
-            <h4>{current}</h4>
-        </>
+        </div>
     )
 }
 

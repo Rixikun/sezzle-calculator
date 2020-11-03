@@ -15,7 +15,6 @@ const HistoryLogs =(props)=> {
     return (
         <>
         <div>
-
           {res}  
         </div>
         </>

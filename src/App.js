@@ -5,10 +5,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>
-        Enter Calculations
+      <header>
+        <h1>
+          Enter Calculations
         </h1>
-      <br/>
+      </header>
       <Calculator />
       <DisplayHistory />
     </div>
