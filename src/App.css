@@ -1,9 +1,11 @@
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: space;
   text-align: center;
+  background-color: #6c7c7b;
+  height: 100vh;
 }
 
 header {
@@ -13,7 +15,7 @@ header {
   align-items: center;
   width: 100%;
   min-height: 150px;
-  background-color: #ccc;
+  background-color: #7dbeba;
 }
 
 main {
@@ -22,7 +24,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 50px auto;
+  margin: auto;
 }
 
 .calculator-container {
@@ -34,7 +36,7 @@ main {
   height: 500px;
   min-width: 300px;
   max-width: 800px;
-  border: 10px solid #555;
+  border: 5px solid #333;
   background-color: #555;
   border-radius: 10px;
   margin: 1rem;
@@ -42,7 +44,7 @@ main {
 
 .calculator-display {
   display: block;
-  width: calc(100% - 2rem);
+  width: calc(100% - 4rem);
   height: 150px;
   border-radius: 10px;
   background-color: #daf7a6;
@@ -132,17 +134,33 @@ button:active {
   overflow: auto;
 }
 
-.logs h4 {
+.logs h3 {
   margin-top: 0;
 }
 
 .entry {
   word-wrap: break-word;
-  max-width: 200px;
   text-align: end;
   overflow: auto;
+  width: 100%;
+  background-color: #f9e9ca;
+  border-bottom: 1px solid #fbdfa9;
+}
+
+.entry:nth-child(2) {
+  background-color: #fbdfa9;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: none;
+}
+
+.entry:last-child {
+  border-bottom: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .entry p {
-  margin: 0.5rem;
+  padding: 0.5rem;
+  margin: 0;
 }

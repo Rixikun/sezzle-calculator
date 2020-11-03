@@ -16,7 +16,7 @@ const HistoryLogs =(props)=> {
     : "";
     return (
         <div className="logs">
-            <h4>Past calculations: </h4>
+            <h3>Past calculations</h3>
           {res}  
         </div>
     )
