@@ -2,6 +2,7 @@ import React from 'react'
 import firebase from "firebase/app";
 import "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+
 import HistoryLogs  from './HistoryLogs'
 
 firebase.initializeApp({
@@ -17,7 +18,7 @@ firebase.initializeApp({
 
 const firestore = firebase.firestore();
 
-const DisplayHistory =()=> {
+const DisplayHistory = () => {
 
     const messagesRef = firestore.collection("calculations");
     const query = messagesRef.orderBy("createdAt", 'desc').limit(10);
@@ -33,4 +34,4 @@ const DisplayHistory =()=> {
     )
 }
 
-export default DisplayHistory
+export default DisplayHistory;

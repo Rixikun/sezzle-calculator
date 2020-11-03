@@ -5,22 +5,22 @@ import { calculate } from '../utils/calculate'
 
 const firestore = firebase.firestore();
 
-
 const Calculator =(props)=> {
     const calculations = firestore.collection("calculations");
     const [input, setInput] = useState("");
     const [current, setCurrent] = useState("");
     const [op, setOp] = useState("");
-    const [allow, setAllow] = useState(true);
+    const [allow, setAllow] = useState(true); // limits app to ONE operation per input
 
-    const numbers = [7,8,9,4,5,6,1,2,3,0,"."]
+    const numbers = [7,8,9,4,5,6,1,2,3,0,"."] // arranged in typical numpad order
     const operators = ["+","-","*","/"]
     
+    // updates db
     const sendCalculation = async (e) => {
         e.preventDefault();
-        let a = input.split(op)[0];
-        let b = input.split(op)[1];
-        let res = calculate(op, a, b)
+        let a = input.split(op)[0]; // 1st num
+        let b = input.split(op)[1]; // 2nd num
+        let res = calculate(op, a, b) // resulting calculation
         if(a && b && res){
             await calculations.add({
               calc: input + "="+ res,
@@ -33,8 +33,8 @@ const Calculator =(props)=> {
         } else {
             alert("enter valid operation")
         }
-      };
-    
+    };
+    // handles btn click event
     const handleClick = (e) => {
         e.preventDefault()
         const selected = e.target.value
@@ -49,14 +49,14 @@ const Calculator =(props)=> {
             setCurrent(input + selected)
         }
     }
+    // clears
     const clearInput =()=> {
         setInput("")
         setCurrent("")
         setAllow(true)
     }
-
+    // number pad JSX
     const numPad = (<div className="calculator-buttons">    
-
         <div className="calculator-numbers">
             <button value="clear" onClick={clearInput} className="btn-clear">Clear</button>
             {numbers.map(num => <button value={num} onClick={e => handleClick(e)} key={num}>{num}</button>)}
@@ -77,4 +77,4 @@ const Calculator =(props)=> {
     )
 }
 
-export default Calculator
+export default Calculator;
