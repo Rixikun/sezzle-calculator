@@ -22,16 +22,19 @@ const Calculator =(props)=> {
         let a = input.split(op)[0];
         let b = input.split(op)[1];
         let res = calculate(op, a, b)
-        await calculations.add({
-          calc: input + "="+ res,
-          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        });
-        setCurrent(res)
-        setOp("")
-        setInput("")
-        setFormValue("");
-        setAllow(true)
-
+        if(a && b && res){
+            await calculations.add({
+              calc: input + "="+ res,
+              createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            });
+            setCurrent(res)
+            setOp("")
+            setInput("")
+            setFormValue("");
+            setAllow(true)
+        } else {
+            alert("enter valid operation")
+        }
       };
     
     const handleClick = (e) => {
